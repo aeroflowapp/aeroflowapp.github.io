@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  AeroFlow Sparkle appcast.
+  Served from GitHub Pages; the app's SUFeedURL points at this file.
+
+  Release flow (see README.md):
+    1. Build the signed, notarized DMG (make-dmg.sh in the app repo).
+    2. Sign the archive:  sign_update downloads/AeroFlow-X.Y.Z.dmg   (Sparkle tool; prints edSignature + length)
+    3. Copy the <item> template below, fill version/signature/length, commit, push.
+  The empty channel is valid: shipped apps simply see "no updates yet".
+-->
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>AeroFlow</title>
+    <link>__AEROFLOW_BASE_URL__/appcast.xml</link>
+    <description>AeroFlow release feed</description>
+    <language>en</language>
+
+    <!-- TEMPLATE — copy, fill, uncomment for each release:
+    <item>
+      <title>AeroFlow X.Y.Z</title>
+      <pubDate>Mon, 21 Jul 2026 12:00:00 +0200</pubDate>
+      <sparkle:version>BUILDNUMBER</sparkle:version>
+      <sparkle:shortVersionString>X.Y.Z</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+        <ul><li>What changed.</li></ul>
+      ]]></description>
+      <enclosure
+        url="__AEROFLOW_BASE_URL__/downloads/AeroFlow-X.Y.Z.dmg"
+        length="BYTES"
+        type="application/octet-stream"
+        sparkle:edSignature="ED_SIGNATURE" />
+    </item>
+    -->
+  </channel>
+</rss>
