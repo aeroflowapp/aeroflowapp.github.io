@@ -12,7 +12,7 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>AeroFlow</title>
-    <link>__AEROFLOW_BASE_URL__/appcast.xml</link>
+    <link>https://khubaevbaysangur-sys.github.io/aeroflow-site/appcast.xml</link>
     <description>AeroFlow release feed</description>
     <language>en</language>
 
@@ -27,7 +27,7 @@
         <ul><li>What changed.</li></ul>
       ]]></description>
       <enclosure
-        url="__AEROFLOW_BASE_URL__/downloads/AeroFlow-X.Y.Z.dmg"
+        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/AeroFlow-X.Y.Z.dmg"
         length="BYTES"
         type="application/octet-stream"
         sparkle:edSignature="ED_SIGNATURE" />
