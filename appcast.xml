@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  AeroFlow Sparkle appcast.
-  Served from GitHub Pages; the app's SUFeedURL points at this file.
+  AeroFlow Sparkle appcast. Served from GitHub Pages; the app's SUFeedURL points here.
 
-  Release flow (see README.md):
-    1. Build the signed, notarized DMG (make-dmg.sh in the app repo).
-    2. Sign the archive:  sign_update downloads/AeroFlow-X.Y.Z.dmg   (Sparkle tool; prints edSignature + length)
-    3. Copy the <item> template below, fill version/signature/length, commit, push.
-  The empty channel is valid: shipped apps simply see "no updates yet".
+  DO NOT hand-edit. `SupportFiles/scripts/release.sh <version>` writes items into
+  this file (newest first) with a real EdDSA signature. There is deliberately no
+  commented-out <item> template here: a previous one caused the inserter to write
+  a release inside this comment block, publishing an empty feed that still looked
+  correct at a glance.
 -->
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
@@ -15,8 +14,6 @@
     <link>https://khubaevbaysangur-sys.github.io/aeroflow-site/appcast.xml</link>
     <description>AeroFlow release feed</description>
     <language>en</language>
-
-    <!-- TEMPLATE — copy, fill, uncomment for each release:
     <item>
       <title>Version 1.1.1</title>
       <description><![CDATA[Much quieter at idle: live readouts no longer animate every digit in dense tables, so AeroFlow stops generating the heat it exists to manage. Switchable ambient backdrops (Aurora, Space, Winter, Nebula, Abyss, Graphite) and a readable content width on large displays.]]></description>
@@ -30,21 +27,5 @@
         length="3902525"
         type="application/octet-stream"/>
     </item>
-    <item>
-      <title>AeroFlow X.Y.Z</title>
-      <pubDate>Mon, 21 Jul 2026 12:00:00 +0200</pubDate>
-      <sparkle:version>BUILDNUMBER</sparkle:version>
-      <sparkle:shortVersionString>X.Y.Z</sparkle:shortVersionString>
-      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[
-        <ul><li>What changed.</li></ul>
-      ]]></description>
-      <enclosure
-        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/AeroFlow-X.Y.Z.dmg"
-        length="BYTES"
-        type="application/octet-stream"
-        sparkle:edSignature="ED_SIGNATURE" />
-    </item>
-    -->
   </channel>
 </rss>
