@@ -18,6 +18,19 @@
 
     <!-- TEMPLATE — copy, fill, uncomment for each release:
     <item>
+      <title>Version 1.1.1</title>
+      <description><![CDATA[Much quieter at idle: live readouts no longer animate every digit in dense tables, so AeroFlow stops generating the heat it exists to manage. Switchable ambient backdrops (Aurora, Space, Winter, Nebula, Abyss, Graphite) and a readable content width on large displays.]]></description>
+      <pubDate>Mon, 27 Jul 2026 22:10:43 +0000</pubDate>
+      <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+      <sparkle:version>1.1.1</sparkle:version>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure
+        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/AeroFlow-1.1.1.dmg"
+        sparkle:edSignature="AmFgx4aP46mzOfunstTfBl3BK7pQ8CLDv4l1d6k2r+4/Jlklh6lVh0Ms6ljIw7Uq+fkpJziLgf9KjZG/k5gWBg=="
+        length="3902525"
+        type="application/octet-stream"/>
+    </item>
+    <item>
       <title>AeroFlow X.Y.Z</title>
       <pubDate>Mon, 21 Jul 2026 12:00:00 +0200</pubDate>
       <sparkle:version>BUILDNUMBER</sparkle:version>
