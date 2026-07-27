@@ -14,7 +14,7 @@ Static landing page + Sparkle update feed for AeroFlow. Hosted on GitHub Pages.
    Site appears at `https://<user>.github.io/aeroflow-site/`.
 
 2. **Lemon Squeezy** (once): create a store at lemonsqueezy.com.
-   - New product “AeroFlow” — $14.99, single payment.
+   - New product “AeroFlow” — kr 149, single payment.
    - Product ▸ **License keys: ON** (suggested activation limit: 2).
    - Note the **store id** (Settings ▸ Stores — the number) and the product’s **checkout link** (Share ▸ copy link).
 
