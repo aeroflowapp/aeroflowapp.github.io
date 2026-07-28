@@ -79,11 +79,15 @@
   .wrap { width: min(100% - 44px, var(--measure)); margin-inline: auto; }
 
   /* ── motion ─────────────────────────────────────────────────────────── */
-  [data-reveal] { opacity: 0; transform: translateY(22px); }
-  [data-reveal].in { opacity: 1; transform: none; transition: opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1); }
-  /* Before JS runs, content must still be visible — a script failure must
-     never leave the page blank. */
-  html:not(.js-ready) [data-reveal] { opacity: 1; transform: none; }
+  /* Reveal elements are VISIBLE by default and are only hidden once the script
+     has decided they are below the fold (.will-reveal). The obvious way round —
+     hide everything in CSS, un-hide with JS — costs a blank first paint and,
+     worse, a visible flash: the content paints, the script flips it to opacity 0,
+     then fades it back in. Above-the-fold copy now paints immediately and is
+     never animated at all; only what the visitor cannot yet see gets choreography.
+     It also means a failed or blocked script leaves a perfectly readable page. */
+  [data-reveal].will-reveal { opacity: 0; transform: translateY(22px); }
+  [data-reveal].in { opacity: 1; transform: none; transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
   [data-tilt] { transition: transform .5s cubic-bezier(.2,.7,.2,1); transform-style: preserve-3d; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -193,7 +197,11 @@
   .price-list { list-style: none; padding: 0; margin: 28px 0 30px; display: grid; gap: 12px; font-size: 15.5px; color: var(--ink-2); }
   .price-list li { display: flex; gap: 12px; align-items: baseline; }
   .price-list b { color: var(--ink); font-weight: 600; }
-  .price-list span { color: var(--ember); font-family: var(--mono); font-size: 12px; flex: none; }
+  /* first-child only: the row is <span>01</span><span>label</span>, and a bare
+     `.price-list span` painted the LABEL in ember mono too, which turned every
+     benefit line into a numeral. */
+  .price-list li > span:first-child { color: var(--ember); font-family: var(--mono); font-size: 12px; flex: none; padding-top: 1px; }
+  .price-list li > span:last-child { color: var(--ink-2); }
   .powered { margin: 18px 0 0; font-size: 12.5px; color: var(--ink-3); line-height: 1.5; }
 
   /* ── faq ────────────────────────────────────────────────────────────── */

@@ -19,11 +19,20 @@
      work off the main thread and we only pay on the frames where something
      actually crosses the threshold. */
   function initReveal() {
-    var targets = document.querySelectorAll('[data-reveal]');
-    if (!('IntersectionObserver' in window) || reduce.matches) {
-      targets.forEach(function (el) { el.classList.add('in'); });
-      return;
-    }
+    var targets = [].slice.call(document.querySelectorAll('[data-reveal]'));
+    if (!('IntersectionObserver' in window) || reduce.matches) return; // already visible
+
+    // Only hide what is genuinely below the fold. Anything the visitor can
+    // already see stays painted and un-animated — the hero must never fade in
+    // from nothing, and must never flash.
+    var fold = window.innerHeight;
+    targets = targets.filter(function (el) {
+      if (el.getBoundingClientRect().top < fold * 0.92) return false;
+      el.classList.add('will-reveal');
+      return true;
+    });
+    if (!targets.length) return;
+
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
@@ -33,7 +42,14 @@
         setTimeout(function () { e.target.classList.add('in'); }, delay * 1000);
         io.unobserve(e.target);
       });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+      // threshold 0, NOT a percentage: a percentage threshold is unreachable for
+      // anything taller than the gap between it and the fold. The hero
+      // screenshot is ~906 px tall and enters with ~94 px showing — 12% of it
+      // would need 109 px, so it sat at opacity 0 in a blank gap on first paint
+      // and only appeared if you happened to scroll. Any visible pixel now counts;
+      // the negative bottom margin still holds the reveal until the element has
+      // properly entered.
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0 });
     targets.forEach(function (el) { io.observe(el); });
   }
 
