@@ -15,6 +15,19 @@
     <description>AeroFlow release feed</description>
     <language>en</language>
     <item>
+      <title>Version 1.2.0</title>
+      <description><![CDATA[Custom fan modes with your own trigger and display sensors, plus steadier fan speeds that no longer hunt at idle.]]></description>
+      <pubDate>Mon, 03 Aug 2026 23:09:30 +0000</pubDate>
+      <sparkle:shortVersionString>1.2.0</sparkle:shortVersionString>
+      <sparkle:version>1.2.0</sparkle:version>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure
+        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/AeroFlow-1.2.0.dmg"
+        sparkle:edSignature="iIM2zrUgevL/HRdwo7bahcjArBbfbDs5bLQI7oo/vOkbjCjopq8V/BR5vuMWI3gvxGSuL+674wh3Lpvx5i6hDw=="
+        length="6331573"
+        type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 1.1.5</title>
       <description><![CDATA[The Buy button now opens the real checkout.]]></description>
       <pubDate>Mon, 03 Aug 2026 15:30:01 +0000</pubDate>
