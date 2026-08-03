@@ -27,57 +27,5 @@
         length="5892454"
         type="application/octet-stream"/>
     </item>
-    <item>
-      <title>Version 1.1.4</title>
-      <description><![CDATA[AeroFlow now runs on Intel Macs as well as Apple Silicon. Intel Macs get proper CPU and GPU sensor rows, and fanless Macs get an honest monitoring view instead of inactive fan controls.]]></description>
-      <pubDate>Mon, 03 Aug 2026 14:59:41 +0000</pubDate>
-      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
-      <sparkle:version>1.1.4</sparkle:version>
-      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <enclosure
-        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/AeroFlow-1.1.4.dmg"
-        sparkle:edSignature="CC2K7rGC2qZTT3lEdj4AYuHDFlP9d4upbm+WqQ7d5VAITiyDz+WuV1U6xUz8oJXy20cwXiUPMYaBFzLJ/wkBBQ=="
-        length="5892403"
-        type="application/octet-stream"/>
-    </item>
-    <item>
-      <title>Version 1.1.3</title>
-      <description><![CDATA[Lighter still at idle: the Sensors tab and thermal forecast no longer do busywork every second.]]></description>
-      <pubDate>Mon, 03 Aug 2026 13:07:47 +0000</pubDate>
-      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
-      <sparkle:version>1.1.3</sparkle:version>
-      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <enclosure
-        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/AeroFlow-1.1.3.dmg"
-        sparkle:edSignature="vVyndFqitOJCxiM9RCNZw/qEtS3dTgYzxa6cyLGnnRTSpA3E91kVLK0Oj0D7BBIiL3laWdUZJPauFgP1uA3EDw=="
-        length="3918016"
-        type="application/octet-stream"/>
-    </item>
-    <item>
-      <title>Version 1.1.2</title>
-      <description><![CDATA[AeroFlow now checks for updates automatically and runs much lighter at idle, with accessibility and copy polish throughout.]]></description>
-      <pubDate>Mon, 03 Aug 2026 12:03:56 +0000</pubDate>
-      <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
-      <sparkle:version>1.1.2</sparkle:version>
-      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <enclosure
-        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/AeroFlow-1.1.2.dmg"
-        sparkle:edSignature="hpWXqFQN6/mfGLswBSREV27uRe+0mOSmeCz3PO6EmIyHjEwGIe9Xuvwk0akU659JLRT2Jz+VKVMvRmysNUYtBw=="
-        length="3910997"
-        type="application/octet-stream"/>
-    </item>
-    <item>
-      <title>Version 1.1.1</title>
-      <description><![CDATA[Much quieter at idle: live readouts no longer animate every digit in dense tables, so AeroFlow stops generating the heat it exists to manage. Switchable ambient backdrops (Aurora, Space, Winter, Nebula, Abyss, Graphite) and a readable content width on large displays.]]></description>
-      <pubDate>Mon, 27 Jul 2026 22:10:43 +0000</pubDate>
-      <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
-      <sparkle:version>1.1.1</sparkle:version>
-      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <enclosure
-        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/AeroFlow-1.1.1.dmg"
-        sparkle:edSignature="AmFgx4aP46mzOfunstTfBl3BK7pQ8CLDv4l1d6k2r+4/Jlklh6lVh0Ms6ljIw7Uq+fkpJziLgf9KjZG/k5gWBg=="
-        length="3902525"
-        type="application/octet-stream"/>
-    </item>
   </channel>
 </rss>
