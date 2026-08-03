@@ -15,6 +15,19 @@
     <description>AeroFlow release feed</description>
     <language>en</language>
     <item>
+      <title>Version 1.1.5</title>
+      <description><![CDATA[The Buy button now opens the real checkout.]]></description>
+      <pubDate>Mon, 03 Aug 2026 15:30:01 +0000</pubDate>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:version>1.1.5</sparkle:version>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure
+        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/AeroFlow-1.1.5.dmg"
+        sparkle:edSignature="hdROhPWTWfxqtCv3yrZFZeb3+cmMIQTvmZRay3xPWUDXXzV4+A6ai0QmO0AvAGEEcsyIL65gVSX5Zqsdh7tEAA=="
+        length="5892454"
+        type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 1.1.4</title>
       <description><![CDATA[AeroFlow now runs on Intel Macs as well as Apple Silicon. Intel Macs get proper CPU and GPU sensor rows, and fanless Macs get an honest monitoring view instead of inactive fan controls.]]></description>
       <pubDate>Mon, 03 Aug 2026 14:59:41 +0000</pubDate>
