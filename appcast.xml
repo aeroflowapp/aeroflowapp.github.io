@@ -15,6 +15,19 @@
     <description>AeroFlow release feed</description>
     <language>en</language>
     <item>
+      <title>Version 1.1.2</title>
+      <description><![CDATA[AeroFlow now checks for updates automatically and runs much lighter at idle, with accessibility and copy polish throughout.]]></description>
+      <pubDate>Mon, 03 Aug 2026 12:03:56 +0000</pubDate>
+      <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
+      <sparkle:version>1.1.2</sparkle:version>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure
+        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/AeroFlow-1.1.2.dmg"
+        sparkle:edSignature="hpWXqFQN6/mfGLswBSREV27uRe+0mOSmeCz3PO6EmIyHjEwGIe9Xuvwk0akU659JLRT2Jz+VKVMvRmysNUYtBw=="
+        length="3910997"
+        type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 1.1.1</title>
       <description><![CDATA[Much quieter at idle: live readouts no longer animate every digit in dense tables, so AeroFlow stops generating the heat it exists to manage. Switchable ambient backdrops (Aurora, Space, Winter, Nebula, Abyss, Graphite) and a readable content width on large displays.]]></description>
       <pubDate>Mon, 27 Jul 2026 22:10:43 +0000</pubDate>
