@@ -1,6 +1,8 @@
 # AeroFlow site
 
-Static landing page + Sparkle update feed for AeroFlow. Hosted on GitHub Pages.
+AeroFlow is now **QuellHeat**: the app's home is [quellheat.com](https://quellheat.com/) and the store lives at [store.quellheat.com](https://store.quellheat.com/).
+
+Static landing page + Sparkle update feed for AeroFlow. Hosted on GitHub Pages. This repo stays live because every shipped DMG fetches updates from its `appcast.xml`.
 
 ## Launch runbook (owner steps — ~20 minutes total)
 
