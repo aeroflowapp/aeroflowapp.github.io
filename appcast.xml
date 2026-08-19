@@ -15,6 +15,19 @@
     <description>AeroFlow release feed</description>
     <language>en</language>
     <item>
+      <title>Version 1.2.2</title>
+      <description><![CDATA[A clearer Dashboard with dedicated temperature and power cards, more native Liquid Glass, and better keyboard access throughout.]]></description>
+      <pubDate>Wed, 19 Aug 2026 12:55:29 +0000</pubDate>
+      <sparkle:shortVersionString>1.2.2</sparkle:shortVersionString>
+      <sparkle:version>1.2.2</sparkle:version>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure
+        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/QuellHeat-1.2.2.dmg"
+        sparkle:edSignature="hbxCEuShpxRMIM7IJVEAuZIKxZyaATkQm1kS7M+UGyvCWNHQTIkVa2PzUwWEuY0blZvdQCO7y4n5lSCfWZgzDw=="
+        length="6039561"
+        type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 1.2.1</title>
       <description><![CDATA[The Modes list sits where it should instead of stretching down an empty window.]]></description>
       <pubDate>Mon, 03 Aug 2026 23:36:53 +0000</pubDate>
