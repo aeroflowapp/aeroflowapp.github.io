@@ -1,8 +1,8 @@
-# AeroFlow site
+# QuellHeat site
 
-AeroFlow is now **QuellHeat**: the app's home is [quellheat.com](https://quellheat.com/) and the store lives at [store.quellheat.com](https://store.quellheat.com/).
+QuellHeat (formerly AeroFlow): the app's home is [quellheat.com](https://quellheat.com/) and the store lives at [store.quellheat.com](https://store.quellheat.com/).
 
-Static landing page + Sparkle update feed for AeroFlow. Hosted on GitHub Pages. This repo stays live because every shipped DMG fetches updates from its `appcast.xml`.
+Static landing page + Sparkle update feed for QuellHeat. Hosted on GitHub Pages. This repo stays live because every shipped DMG fetches updates from its `appcast.xml`.
 
 ## Launch runbook (owner steps — ~20 minutes total)
 
@@ -16,7 +16,7 @@ Static landing page + Sparkle update feed for AeroFlow. Hosted on GitHub Pages. 
    Site appears at `https://<user>.github.io/aeroflow-site/`.
 
 2. **Lemon Squeezy** (once): create a store at lemonsqueezy.com.
-   - New product “AeroFlow” — kr 149, single payment.
+   - New product “QuellHeat” — kr 149, single payment.
    - Product ▸ **License keys: ON** (suggested activation limit: 2).
    - Note the **store id** (Settings ▸ Stores — the number) and the product’s **checkout link** (Share ▸ copy link).
 
@@ -39,7 +39,7 @@ Static landing page + Sparkle update feed for AeroFlow. Hosted on GitHub Pages. 
 
 - `index.html` — the page. Buy buttons carry `__LEMON_CHECKOUT_URL__` until finalize.sh runs.
 - `appcast.xml` — Sparkle feed. Empty channel is valid (“no updates yet”). `__AEROFLOW_BASE_URL__` until finalize.sh runs.
-- `downloads/` — DMGs live here (`AeroFlow.dmg` = latest; versioned copies for the appcast).
+- `downloads/` — DMGs live here (`QuellHeat.dmg` = latest, `AeroFlow.dmg` kept as a legacy alias for old links; versioned copies for the appcast).
 - `assets/` — screenshots.
 - `finalize.sh` — stamps real URLs (idempotent).
 

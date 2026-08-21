@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  AeroFlow Sparkle appcast. Served from GitHub Pages; the app's SUFeedURL points here.
+  QuellHeat Sparkle appcast. Served from GitHub Pages; the app's SUFeedURL points here.
 
   DO NOT hand-edit. `SupportFiles/scripts/release.sh <version>` writes items into
   this file (newest first) with a real EdDSA signature. There is deliberately no
@@ -10,9 +10,9 @@
 -->
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
-    <title>AeroFlow</title>
+    <title>QuellHeat</title>
     <link>https://khubaevbaysangur-sys.github.io/aeroflow-site/appcast.xml</link>
-    <description>AeroFlow release feed</description>
+    <description>QuellHeat release feed</description>
     <language>en</language>
     <item>
       <title>Version 1.3.0</title>
