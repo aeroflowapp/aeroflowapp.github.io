@@ -20,7 +20,12 @@ bad()  { printf "  \033[31m✗\033[0m %s\n" "$1"; fail=$((fail+1)); }
 echo "── checkout link matches the shipping app ──"
 if [[ -f "$APP_PLIST" ]]; then
   REAL=$(/usr/libexec/PlistBuddy -c "Print :AFBuyURL" "$APP_PLIST" 2>/dev/null)
-  SITE=$(grep -o 'https://aeroflow\.lemonsqueezy\.com/checkout/buy/[a-f0-9-]*' index.html | sort -u)
+  # Domain-agnostic: the store answers on several hostnames (quellheat.com,
+  # store.quellheat.com, aeroflow.lemonsqueezy.com) and all of them resolve to
+  # the same cart. Hardcoding one meant this check could not see a mismatch
+  # that was only a hostname apart — which is exactly the state it found the
+  # site in. What matters is that the page and the shipping app agree.
+  SITE=$(grep -o 'https://[a-z0-9.-]*/checkout/buy/[a-f0-9-]*' index.html | sort -u)
   COUNT=$(printf '%s\n' "$SITE" | grep -c . || true)
   if [[ "$COUNT" -ne 1 ]]; then
     bad "site has $COUNT distinct checkout URLs (expected exactly 1): $SITE"
@@ -36,7 +41,13 @@ else
 fi
 
 echo "── no third-party resources (keeps the CSP honest) ──"
-EXT=$(grep -oE '(href|src)="https?://[^"]*"' index.html | grep -vE 'lemonsqueezy|khubaevbaysangur-sys' || true)
+# Only FETCHED resources can violate the CSP. A canonical link and an ordinary
+# <a href> are not fetched — flagging them made this check cry wolf, and a check
+# that always fails is a check nobody reads. Script, style, image and font
+# sources are what actually matter here.
+EXT=$(grep -oE '<(script|img|iframe|source|video|audio)[^>]*src="https?://[^"]*"' index.html || true)
+EXT="$EXT$(grep -oE '<link[^>]*rel="(stylesheet|preload|prefetch)"[^>]*href="https?://[^"]*"' index.html || true)"
+EXT="$(printf '%s' "$EXT" | grep -vE 'khubaevbaysangur-sys|quellheat\.com' || true)"
 if [[ -z "$EXT" ]]; then ok "zero external resources"; else bad "external resources present:"; echo "$EXT" | sed 's/^/      /'; fi
 
 echo "── price is consistent ──"

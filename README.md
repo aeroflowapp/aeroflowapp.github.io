@@ -1,49 +1,64 @@
 # QuellHeat site
 
-QuellHeat (formerly AeroFlow): the app's home is [quellheat.com](https://quellheat.com/) and the store lives at [store.quellheat.com](https://store.quellheat.com/).
+Landing page and Sparkle update feed for [QuellHeat](https://quellheat.com/),
+a Mac fan-control app. Static, hosted on GitHub Pages.
 
-Static landing page + Sparkle update feed for QuellHeat. Hosted on GitHub Pages. This repo stays live because every shipped DMG fetches updates from its `appcast.xml`.
+**This repo stays live forever.** Every shipped DMG checks `appcast.xml` here
+for updates. Taking it down, renaming it, or breaking the URL structure strands
+every installed copy silently — Sparkle just reports "no updates".
 
-## Launch runbook (owner steps — ~20 minutes total)
+## Shipping a release
 
-1. **GitHub** (once): create an account at github.com/signup if needed. Then:
-   ```sh
-   # from this directory
-   gh auth login                 # or create the repo in the web UI
-   gh repo create aeroflow-site --public --source . --push
-   ```
-   Enable Pages: repo ▸ Settings ▸ Pages ▸ Deploy from branch ▸ `main` / root.
-   Site appears at `https://<user>.github.io/aeroflow-site/`.
+One command, run from the **app** repo, not this one:
 
-2. **Lemon Squeezy** (once): create a store at lemonsqueezy.com.
-   - New product “QuellHeat” — kr 149, single payment.
-   - Product ▸ **License keys: ON** (suggested activation limit: 2).
-   - Note the **store id** (Settings ▸ Stores — the number) and the product’s **checkout link** (Share ▸ copy link).
+```sh
+bash SupportFiles/scripts/release.sh 1.4.0 "What changed, in the user's words."
+```
 
-3. **Stamp the URLs**:
-   ```sh
-   bash finalize.sh --user <github-user> --checkout <checkout-link>
-   git commit -am "stamp real URLs" && git push
-   ```
+It stamps the version, builds and notarizes the DMG, signs it with the Sparkle
+EdDSA key, writes the appcast item, copies the DMG into `downloads/`, stamps the
+footer version in `index.html`, and pushes. Do not do these by hand: each step
+fails silently on its own, and doing them in one scripted pass is what keeps the
+update path honest.
 
-4. **App side** (Claude does this, or by hand): put the printed `SUFeedURL`,
-   `AFLicenseStoreID`, and `AFBuyURL` values into
-   `SupportFiles/AeroFlowApp-Info.plist` in the app repo, rebuild + notarize the
-   DMG (`make-dmg.sh`), copy it to `downloads/`, add the release `<item>` to
-   `appcast.xml` (template inside, signed with Sparkle’s `sign_update`), push.
+It stages only `appcast.xml`, `index.html` and the DMGs. Any other change here —
+new screenshots, copy edits — needs its own commit.
 
-5. **Test the loop**: buy with LS test mode ON, activate in the app, then flip
-   the store to live mode.
+## Before you push
+
+```sh
+bash check.sh
+```
+
+Verifies the things an eye cannot: that the checkout URL matches the one
+compiled into the shipping app, that the appcast's signature and byte length
+match the DMG actually in `downloads/`, that every referenced asset exists. It
+exists because a single mistyped character in the checkout UUID once sent all
+four Buy buttons to a dead checkout, on a page that looked perfect.
 
 ## Files
 
-- `index.html` — the page. Buy buttons carry `__LEMON_CHECKOUT_URL__` until finalize.sh runs.
-- `appcast.xml` — Sparkle feed. Empty channel is valid (“no updates yet”). `__AEROFLOW_BASE_URL__` until finalize.sh runs.
-- `downloads/` — DMGs live here (`QuellHeat.dmg` = latest, `AeroFlow.dmg` kept as a legacy alias for old links; versioned copies for the appcast).
-- `assets/` — screenshots.
-- `finalize.sh` — stamps real URLs (idempotent).
+| Path | What it is |
+|---|---|
+| `index.html` | The whole page — styles inline, no third-party requests. |
+| `site.js` | Reveal-on-scroll and parallax. Same-origin; the page is fully readable without it. |
+| `appcast.xml` | Sparkle feed. Written by `release.sh` — do not hand-edit. |
+| `downloads/` | `QuellHeat.dmg` is the latest; `AeroFlow.dmg` is a legacy alias kept for old links; versioned copies are what the appcast points at. |
+| `assets/` | Screenshots, and `backdrops.jpg` — the seven window backdrops as one strip. |
+| `check.sh` | Pre-publish verification. |
 
-## Support email
+Only keep DMGs the appcast still references. Old ones are dead weight in a repo
+that is cloned on every deploy.
 
-The page's Support link currently points at the owner's personal Gmail — swap in
-a dedicated address in `index.html` if preferred before announcing.
+## Content Security Policy
+
+The page sets a strict CSP: `default-src 'none'`, with `script-src 'self'` the
+only relaxation. No CDN, no analytics, no fonts fetched — type is New York over
+SF, both of which every visitor to a macOS-app site already has. Nobody but
+GitHub can see who visits. Adding any third-party resource means loosening this,
+so don't.
+
+## Support
+
+The Support link points at the owner's personal address. Swap in a dedicated one
+in `index.html` before any wider announcement.
