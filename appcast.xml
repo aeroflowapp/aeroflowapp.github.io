@@ -15,6 +15,19 @@
     <description>QuellHeat release feed</description>
     <language>en</language>
     <item>
+      <title>Version 1.4.0</title>
+      <description><![CDATA[New: seven window backdrops — black sand, golden dune, pale sand, aurora, nebula, a ringed planet and cirrus cloud — each graded separately for light and dark appearance, so the window follows your Mac. The native macOS material stays the default and nothing changes until you pick one. New: clearer, more refractive Liquid Glass over a backdrop, on the dashboard cards and the menu-bar panel alike. Fixed: sheets never applied their Reduce Transparency fallback. Fixed: light-appearance legibility over a photographic backdrop.]]></description>
+      <pubDate>Sat, 22 Aug 2026 20:52:43 +0000</pubDate>
+      <sparkle:shortVersionString>1.4.0</sparkle:shortVersionString>
+      <sparkle:version>1.4.0</sparkle:version>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure
+        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/QuellHeat-1.4.0.dmg"
+        sparkle:edSignature="W3NbGWta33sfmTffFbItSbb2uy/bZ/TW7FhWzUh5exuf8g1hb6+cOkuTVhGgyUEXs2kpW1HjHv90plQGeZdLAA=="
+        length="13857849"
+        type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 1.3.0</title>
       <description><![CDATA[New: at-a-glance system metrics on the Dashboard — overall load plus CPU, GPU, memory and disk, each with its real measurement. New: live system power draw on the Power card and in the menu-bar panel. New app icon. Fixed: a crash when opening the menu-bar panel. Fixed: fan-control helper setup could get stuck — Repair now rebuilds a stale registration. Improved: clearer temperature colours, and the panel fan slider now shows live RPM and reaches its true minimum. Plus a broad audit pass hardening the fan-control fail-safes.]]></description>
       <pubDate>Fri, 21 Aug 2026 22:17:13 +0000</pubDate>
@@ -25,19 +38,6 @@
         url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/QuellHeat-1.3.0.dmg"
         sparkle:edSignature="lvionp7AAfWZJBFXTVTTKyPY/U8w60Pr9fMvTknj7kSfWUobSPim+JJRx9xA3/w+l4hFUKdp778fgAufYZCuAg=="
         length="6108270"
-        type="application/octet-stream"/>
-    </item>
-    <item>
-      <title>Version 1.2.2</title>
-      <description><![CDATA[A clearer Dashboard with dedicated temperature and power cards, more native Liquid Glass, and better keyboard access throughout.]]></description>
-      <pubDate>Wed, 19 Aug 2026 12:55:29 +0000</pubDate>
-      <sparkle:shortVersionString>1.2.2</sparkle:shortVersionString>
-      <sparkle:version>1.2.2</sparkle:version>
-      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <enclosure
-        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/QuellHeat-1.2.2.dmg"
-        sparkle:edSignature="hbxCEuShpxRMIM7IJVEAuZIKxZyaATkQm1kS7M+UGyvCWNHQTIkVa2PzUwWEuY0blZvdQCO7y4n5lSCfWZgzDw=="
-        length="6039561"
         type="application/octet-stream"/>
     </item>
   </channel>
