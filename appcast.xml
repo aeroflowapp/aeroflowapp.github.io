@@ -15,6 +15,19 @@
     <description>QuellHeat release feed</description>
     <language>en</language>
     <item>
+      <title>Version 1.5.0</title>
+      <description><![CDATA[Four new window backgrounds — Cumulus, Desert Dusk, Riviera and Night Circuit — and a big performance pass: lower idle CPU, smoother scrolling and resizing, a faster Settings page, and a much smaller app. Plus evened-out dark backgrounds and a Power card fix.]]></description>
+      <pubDate>Wed, 26 Aug 2026 10:19:06 +0000</pubDate>
+      <sparkle:shortVersionString>1.5.0</sparkle:shortVersionString>
+      <sparkle:version>1.5.0</sparkle:version>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure
+        url="https://khubaevbaysangur-sys.github.io/aeroflow-site/downloads/QuellHeat-1.5.0.dmg"
+        sparkle:edSignature="gu/SiDu6L71a7JZ6YdrqWNHmrZ3XC1g/xzFvLe3y3zTg4qFEPO4XkzXQjXNJ2AtdvYjtfeQbxCYM4wnzujcQDg=="
+        length="15723454"
+        type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 1.4.0</title>
       <description><![CDATA[New: seven window backdrops — black sand, golden dune, pale sand, aurora, nebula, a ringed planet and cirrus cloud — each graded separately for light and dark appearance, so the window follows your Mac. The native macOS material stays the default and nothing changes until you pick one. New: clearer, more refractive Liquid Glass over a backdrop, on the dashboard cards and the menu-bar panel alike. Fixed: sheets never applied their Reduce Transparency fallback. Fixed: light-appearance legibility over a photographic backdrop.]]></description>
       <pubDate>Sat, 22 Aug 2026 20:52:43 +0000</pubDate>
