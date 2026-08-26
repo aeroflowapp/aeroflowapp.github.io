@@ -1,7 +1,18 @@
 # QuellHeat site
 
-Landing page and Sparkle update feed for [QuellHeat](https://quellheat.com/),
-a Mac fan-control app. Static, hosted on GitHub Pages.
+Sparkle update feed, downloads, and the MIRROR landing page for
+[QuellHeat](https://quellheat.com/), a Mac fan-control app. Static, hosted on
+GitHub Pages.
+
+**The page visitors actually see is NOT this repo.** quellheat.com is a
+Cloudflare Pages project served from `~/TEMP/quellheat-site` (direct wrangler
+upload, no git) — it carries the SEO head, the structured data, and the guide
+articles. This repo's index.html is a mirror of the same design. Edit copy on
+the OFFICIAL page first (`~/TEMP/quellheat-site`, then `bash deploy.sh`
+there); the goal meter's `data-raised` figure lives there too and release.sh
+mirrors it into this repo's copy at ship time, so only ever update it in one
+place. The update feed, the DMGs, and check.sh's checkout cross-check all
+live HERE and only here.
 
 **This repo stays live forever.** Every shipped DMG checks `appcast.xml` here
 for updates. Taking it down, renaming it, or breaking the URL structure strands
