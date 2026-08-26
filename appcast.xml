@@ -16,7 +16,7 @@
     <language>en</language>
     <item>
       <title>Version 1.5.0</title>
-      <description><![CDATA[Four new window backgrounds — Cumulus, Desert Dusk, Riviera and Night Circuit — and a big performance pass: lower idle CPU, smoother scrolling and resizing, a faster Settings page, and a much smaller app. Plus evened-out dark backgrounds and a Power card fix.]]></description>
+      <description><![CDATA[Four new window backgrounds: Cumulus, Desert Dusk, Riviera and Night Circuit. A big performance pass: lower idle CPU, smoother scrolling and resizing, a faster Settings page, and a much smaller app. Plus evened-out dark backgrounds and a Power card fix.]]></description>
       <pubDate>Wed, 26 Aug 2026 10:19:06 +0000</pubDate>
       <sparkle:shortVersionString>1.5.0</sparkle:shortVersionString>
       <sparkle:version>1.5.0</sparkle:version>
