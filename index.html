@@ -8,7 +8,9 @@
 <link rel="canonical" href="https://quellheat.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a84ff'/%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='32' cy='32' r='5.4'/%3E%3Cpath d='M32 10c7 0 10 5 10 9 0 5-4 8-8 9l-2 .5V10zM54 32c0 7-5 10-9 10-5 0-8-4-9-8l-.5-2H54zM32 54c-7 0-10-5-10-9 0-5 4-8 8-9l2-.5V54zM10 32c0-7 5-10 9-10 5 0 8 4 9 8l.5 2H10z'/%3E%3C/g%3E%3C/svg%3E">
 <!-- script-src 'self' is the ONLY relaxation from default-src 'none': the motion
-     layer is a same-origin file, never a CDN. No third party can see who visits. -->
+     layer is a same-origin file, never a CDN. No third party can see who visits.
+     connect-src stays 'none' — which is also why the goal meter below is a
+     hand-updated number, not a live tracker: this page phones nobody. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; base-uri 'none'; connect-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#0b0c0f">
@@ -28,16 +30,15 @@
      The product photographs as a precise dark instrument on photographic
      glass, so the page is the same room: one deep graphite ground, hairline
      structure, and the screenshots doing the talking. The thermal ramp is
-     the ONE piece of colour and it appears exactly where heat would.
+     the ONE piece of colour and it appears exactly where heat would — and,
+     as of the goal section, where money fills toward the watch.
 
-     Zero third-party resources. Type is the visitor's own system SF stack —
-     every visitor to a macOS-app site already has it, and nothing else looks
-     more at home. All motion is a single opacity/translate reveal, disabled
-     under prefers-reduced-motion.
+     Zero third-party resources. Type is the visitor's own system SF stack.
+     All motion is a single opacity/translate reveal, disabled under
+     prefers-reduced-motion.
      ───────────────────────────────────────────────────────────────────────── */
   :root {
     --bg: #0b0c0f;
-    --bg-2: #101216;
     --card: #14161b;
     --ink: #f2f3f5;
     --ink-2: #a6adb8;
@@ -46,7 +47,6 @@
     --line-soft: rgba(255,255,255,.055);
     --thermal: linear-gradient(96deg,#4fb6dd 0%,#43d3b4 22%,#ffd23f 56%,#ffb340 74%,#ff5533 100%);
     --cool: #6fc6e8;
-    --warm: #ffb340;
     --shadow-shot: 0 1px 0 rgba(255,255,255,.06) inset, 0 24px 80px -24px rgba(0,0,0,.8), 0 8px 28px rgba(0,0,0,.45);
     --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
     --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
@@ -61,7 +61,6 @@
     font-family: var(--sans); font-size: 16.5px; line-height: 1.65;
     -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
-  /* One faint upward wash so the hero has air without a second colour. */
   body::before {
     content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background:
@@ -73,7 +72,6 @@
   ::selection { background: rgba(111,198,232,.28); }
   :focus-visible { outline: 2px solid var(--cool); outline-offset: 3px; border-radius: 6px; }
 
-  /* ── motion ── */
   [data-reveal].will-reveal { opacity: 0; transform: translateY(16px); }
   [data-reveal].in { opacity: 1; transform: none;
     transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
@@ -82,7 +80,6 @@
     [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
   }
 
-  /* ── nav ── */
   nav {
     position: sticky; top: 0; z-index: 10;
     background: rgba(11,12,15,.72);
@@ -101,7 +98,6 @@
   .nav-links a:hover { color: var(--ink); }
   .nav-spacer { margin-inline: auto; }
 
-  /* ── buttons ── */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
     border-radius: 999px; text-decoration: none; font-weight: 600; letter-spacing: .005em;
@@ -114,7 +110,6 @@
   .btn-ghost:hover { border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.05); }
   .btn-sm { padding: 8px 16px; font-size: 13.5px; }
 
-  /* ── hero ── */
   header { padding: 92px 0 20px; }
   .eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
@@ -132,7 +127,6 @@
   .fineprint { color: var(--ink-3); font-size: 13.5px; margin-top: 20px; letter-spacing: .01em; }
   .hero-head { max-width: 760px; }
 
-  /* ── screenshots ── */
   figure { margin: 56px 0 0; }
   .shot {
     border-radius: var(--r); overflow: hidden; background: var(--card);
@@ -141,7 +135,6 @@
   .shot img { display: block; width: 100%; height: auto; }
   figcaption { color: var(--ink-3); font-size: 13.5px; margin-top: 14px; text-align: center; letter-spacing: .01em; }
 
-  /* ── sections ── */
   section { padding: 110px 0 0; }
   .snum { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
   h2 { font-family: var(--display); font-size: clamp(30px, 4.4vw, 46px); line-height: 1.08; letter-spacing: -.022em; font-weight: 700; margin: 0 0 16px; }
@@ -161,7 +154,6 @@
     border: 1px solid var(--line); background: rgba(255,255,255,.03);
   }
 
-  /* ── safety ── */
   .safety {
     border: 1px solid var(--line); border-radius: 22px; padding: 46px 48px;
     background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
@@ -176,11 +168,33 @@
   .tick::after { content: ""; position: absolute; left: 6px; top: 3px; width: 5px; height: 9px;
     border: solid var(--cool); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
 
-  /* ── two-up shots ── */
   .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
   .duo figure { margin-top: 44px; }
 
-  /* ── price ── */
+  /* ── the goal ──
+     The meter is HAND-UPDATED (data-raised below) because this page fetches
+     nothing from anywhere — see the CSP note in <head>. site.js turns the one
+     attribute into the fill width and the printed figure. */
+  .goal-card {
+    border: 1px solid var(--line); border-radius: 22px; padding: 46px 48px;
+    background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+    box-shadow: 0 30px 80px -40px rgba(0,0,0,.8);
+  }
+  .meter-row { margin-top: 34px; max-width: 62em; }
+  .meter {
+    height: 12px; border-radius: 999px; overflow: hidden;
+    background: rgba(255,255,255,.06); border: 1px solid var(--line-soft);
+  }
+  .meter-fill {
+    display: block; height: 100%; border-radius: 999px;
+    background: var(--thermal); min-width: 4px;
+  }
+  .meter-nums { display: flex; justify-content: space-between; margin-top: 12px;
+    font-family: var(--mono); font-size: 13.5px; }
+  .meter-nums .now { color: var(--ink); }
+  .meter-nums .goal { color: var(--ink-3); }
+  .goal-fine { color: var(--ink-3); font-size: 12.8px; line-height: 1.55; margin: 18px 0 0; max-width: 62em; }
+
   .price-wrap { display: grid; grid-template-columns: 1fr 420px; gap: 56px; align-items: center; }
   .price-card {
     border: 1px solid var(--line); border-radius: 22px; padding: 34px 32px 28px;
@@ -197,7 +211,6 @@
   .price-list b { color: var(--ink); font-weight: 600; }
   .powered { color: var(--ink-3); font-size: 12.8px; line-height: 1.55; margin: 14px 0 0; }
 
-  /* ── faq ── */
   .faq { display: grid; gap: 0; margin-top: 38px; border-top: 1px solid var(--line-soft); }
   details { border-bottom: 1px solid var(--line-soft); }
   summary {
@@ -209,23 +222,20 @@
   details[open] summary::after { transform: rotate(45deg); }
   details p { margin: 0 0 22px; padding: 0 4px; color: var(--ink-2); font-size: 15.2px; max-width: 56em; }
 
-  /* ── footer ── */
   footer { margin-top: 120px; border-top: 1px solid var(--line-soft); padding: 30px 0 44px; }
   .foot-in { display: flex; align-items: center; gap: 18px; color: var(--ink-3); font-size: 13.5px; flex-wrap: wrap; }
   .foot-in a { color: var(--ink-3); text-decoration: none; }
   .foot-in a:hover { color: var(--ink); }
   .mono { font-family: var(--mono); font-size: 12.5px; }
 
-  /* ── responsive ── */
   @media (max-width: 900px) {
-    .cols { grid-template-columns: 1fr 1fr; }
+    .cols { grid-template-columns: 1fr; }
     .price-wrap { grid-template-columns: 1fr; gap: 34px; }
     .duo { grid-template-columns: 1fr; }
-    .safety { padding: 34px 26px; }
+    .safety, .goal-card { padding: 34px 26px; }
   }
   @media (max-width: 640px) {
     .nav-links { display: none; }
-    .cols { grid-template-columns: 1fr; }
     header { padding-top: 64px; }
     section { padding-top: 84px; }
   }
@@ -239,7 +249,7 @@
     <div class="nav-links">
       <a href="#what">What it does</a>
       <a href="#safety">Safety</a>
-      <a href="#look">Backdrops</a>
+      <a href="#goal">The goal</a>
       <a href="#price">Price</a>
       <a href="#faq">FAQ</a>
     </div>
@@ -277,32 +287,17 @@
     <div class="col" data-reveal>
       <div class="glyph">01</div>
       <h3>Every sensor, live</h3>
-      <p>CPU, GPU, battery, power and more, read straight from the SMC and updated continuously, with rolling history on any sensor you open.</p>
+      <p>CPU, GPU, battery, power and more, read straight from the SMC and updated continuously — searchable, pinnable, with rolling history on any sensor you open.</p>
     </div>
     <div class="col" data-reveal>
       <div class="glyph">02</div>
       <h3>Fans that obey you</h3>
-      <p>Quiet, Balanced, Max, or a fixed manual speed — plus your own saved modes. Every write is clamped to what your fans actually support.</p>
+      <p>Quiet, Balanced, Max, a fixed manual speed — or one-click custom modes you build yourself, each watching the sensor you choose. Every write is clamped to what your fans actually support.</p>
     </div>
     <div class="col" data-reveal>
       <div class="glyph">03</div>
-      <h3>In your menu bar</h3>
-      <p>A fan that spins at your real fan speed, and the temperature you care about — plus a summonable panel that floats over any app, on any Space.</p>
-    </div>
-    <div class="col" data-reveal>
-      <div class="glyph">04</div>
-      <h3>Custom modes, one click</h3>
-      <p>Pick an icon, a minimum or fixed speed, and the sensor that should trigger it. Switch from the Modes tab or straight from the menu bar.</p>
-    </div>
-    <div class="col" data-reveal>
-      <div class="glyph">05</div>
-      <h3>Steady and matched</h3>
-      <p>Fan speeds don't hunt up and down at idle, and both fans are driven from one shared decision so they stay matched instead of drifting apart.</p>
-    </div>
-    <div class="col" data-reveal>
-      <div class="glyph">06</div>
-      <h3>Light on the machine</h3>
-      <p>A fan app shouldn't be the thing heating your Mac. QuellHeat idles quietly, backs its sensors off when hidden, and ships as a 5&nbsp;MB binary.</p>
+      <h3>At hand, never in the way</h3>
+      <p>A menu-bar fan that spins at your real fan speed, plus a summonable glass panel that floats over any app on any Space. All of it light on the machine: a 5&nbsp;MB app that idles quietly.</p>
     </div>
   </div>
 
@@ -311,7 +306,7 @@
       <img src="assets/sensors.jpg" width="1800" height="1067" loading="lazy"
            alt="The Sensors view on the Aurora backdrop: a readable list of thermal sensors with live temperatures, searchable and pinnable.">
     </div>
-    <figcaption>Every sensor your Mac exposes, searchable and pinnable, each with its own history.</figcaption>
+    <figcaption>Every sensor your Mac exposes, each with its own history.</figcaption>
   </figure>
 </section>
 
@@ -329,33 +324,10 @@
   </div>
 </section>
 
-<section class="wrap">
-  <div class="snum" data-reveal>03 · The interface</div>
-  <h2 data-reveal>Native, and quiet about it.</h2>
-  <p class="sub" data-reveal>Real Liquid Glass on macOS 26, native materials before it. Four focused tabs — Dashboard, Sensors, Modes and Settings — plus a menu-bar panel that floats above every other window, on any Space, without stealing focus.</p>
-
-  <div class="duo">
-    <figure data-reveal>
-      <div class="shot">
-        <img src="assets/modes.jpg" width="1800" height="1067" loading="lazy"
-             alt="The Modes tab on the Black Sand backdrop: custom fan modes with their trigger sensors, speeds shown in RPM, and inline edit controls.">
-      </div>
-      <figcaption>Your own modes, each watching the sensor you picked.</figcaption>
-    </figure>
-    <figure data-reveal>
-      <div class="shot">
-        <img src="assets/panel.jpg" width="1000" height="896" loading="lazy"
-             alt="The summon panel: three floating glass tiles over the desktop showing the live temperature, fan mode controls with a speed slider, and quick actions — summoned with a global hotkey.">
-      </div>
-      <figcaption>The summon panel — one hotkey, over anything, on any Space.</figcaption>
-    </figure>
-  </div>
-</section>
-
 <section id="look" class="wrap">
-  <div class="snum" data-reveal>04 · Make it yours</div>
-  <h2 data-reveal>Eleven backdrops.<br>Both appearances.</h2>
-  <p class="sub" data-reveal>Keep the native macOS window material, or put the app on a photograph. Each one ships graded twice — once for light appearance, once for dark — so the window follows your Mac instead of fighting it.</p>
+  <div class="snum" data-reveal>03 · The interface</div>
+  <h2 data-reveal>Native, and yours.</h2>
+  <p class="sub" data-reveal>Real Liquid Glass on macOS 26, native materials before it — and eleven photographic backdrops, each graded once for light appearance and once for dark, so the window follows your Mac instead of fighting it.</p>
 
   <figure data-reveal>
     <div class="shot">
@@ -375,11 +347,32 @@
     </figure>
     <figure data-reveal>
       <div class="shot">
-        <img src="assets/backgrounds.jpg" width="1620" height="960" loading="lazy"
-             alt="QuellHeat settings on the Night Circuit backdrop, showing the Window Background picker: twelve swatches — System plus the eleven photographs.">
+        <img src="assets/panel.jpg" width="1000" height="896" loading="lazy"
+             alt="The summon panel: three floating glass tiles showing the live temperature, fan mode controls with a speed slider, and quick actions — summoned with a global hotkey.">
       </div>
-      <figcaption>Pick one in Settings. It applies to the window and its sheets; the panel keeps floating free.</figcaption>
+      <figcaption>The summon panel — one hotkey, over anything, on any Space.</figcaption>
     </figure>
+  </div>
+</section>
+
+<section id="goal" class="wrap">
+  <div class="goal-card" data-reveal>
+    <div class="snum">04 · The goal</div>
+    <h2>At $10,000, one of you gets a watch.</h2>
+    <p class="sub">QuellHeat is built by one person. When total sales pass $10,000, we're buying a proper watch — yes, we mean a Rolex — and giving it away to one person who bought the app. Every licence ever sold is automatically an entry. No extra purchase, nothing to sign up for.</p>
+    <!-- OWNER: update data-raised below with the real all-time total from the
+         Lemon Squeezy dashboard (USD, whole dollars) whenever you publish.
+         site.js fills the bar and prints the figure from this ONE attribute. -->
+    <div class="meter-row">
+      <div class="meter" data-raised="0" data-goal="10000" role="img" aria-label="Progress toward the 10,000 dollar goal">
+        <i class="meter-fill" style="width:0%"></i>
+      </div>
+      <div class="meter-nums">
+        <span class="now" data-raised-label>$0</span>
+        <span class="goal">goal · $10,000</span>
+      </div>
+    </div>
+    <p class="goal-fine">Counted by hand from real sales and updated with each release — this page has no tracker behind it, so the bar moves when we ship, not by the second. Draw details and rules will be published right here when we cross the line.</p>
   </div>
 </section>
 
@@ -388,7 +381,7 @@
     <div>
       <div class="snum" data-reveal>05 · Price</div>
       <h2 data-reveal>Buy it once.<br>Keep it.</h2>
-      <p class="sub" data-reveal>There's no subscription and no account to create. Monitoring is free forever. The licence unlocks fan control.</p>
+      <p class="sub" data-reveal>There's no subscription and no account to create. Monitoring is free forever. The licence unlocks fan control — and puts you in the draw.</p>
     </div>
     <div class="price-card" data-reveal>
       <div class="price">kr 149<small>one-time</small></div>
@@ -420,35 +413,19 @@
     </details>
     <details data-reveal>
       <summary>Is it safe to control my fans?</summary>
-      <p>QuellHeat never overrides macOS thermal safety, clamps every write to the limits your hardware reports, and hands the fans back to Apple's automatic control if anything goes wrong at all, including quitting the app, a crash, or a lapsed licence. Temperature monitoring keeps running in every one of those cases.</p>
+      <p>QuellHeat never overrides macOS thermal safety, clamps every write to the limits your hardware reports, and hands the fans back to Apple's automatic control if anything goes wrong at all — including quitting the app, a crash, or a lapsed licence. Temperature monitoring keeps running in every one of those cases.</p>
     </details>
     <details data-reveal>
-      <summary>What are custom modes?</summary>
-      <p>A custom mode is a one-click preset you build yourself: a name, an icon, a trigger sensor from Hottest and CPU Core Average to a sensor you name yourself, and a display sensor of your choice. Its speed is set as either a minimum, so fans never drop below it but still ramp up if it gets hot, or fixed, holding one number outright. Switch modes from the Modes tab or right from the menu bar. A fixed mode still yields to the overheat safety boost, so it can't cook your Mac either.</p>
+      <summary>How does the watch giveaway work?</summary>
+      <p>Every licence ever bought counts as one entry — past customers included, nothing extra to do. When all-time sales cross $10,000 we'll publish the full draw rules here and in the app's release notes, pick one licence at random, contact the buyer on their order email, and buy the watch. If the law where you live doesn't allow a draw like this, we'll offer an alternative of equal value where we legally can — the rules published at draw time will say exactly how it's handled.</p>
     </details>
     <details data-reveal>
-      <summary>Can I change how it looks?</summary>
-      <p>Yes. Settings ▸ Appearance offers the native macOS window material — the default, and what you get if you change nothing — plus eleven photographic backdrops. Each ships graded twice, once for light appearance and once for dark, so the window follows your Mac's setting rather than forcing one. Accent colour is yours to pick too. Warm colours are reserved for temperature and never used for anything else, so an amber reading always means heat.</p>
-    </details>
-    <details data-reveal>
-      <summary>How does activation work?</summary>
-      <p>You get a licence key by email. Paste it into the Activate window once per Mac. It works on two Macs, and there's a 14-day offline grace period so travelling never locks you out.</p>
-    </details>
-    <details data-reveal>
-      <summary>How do updates work?</summary>
-      <p>QuellHeat checks for updates itself and installs them in place, cryptographically signed and verified, so you never have to re-download from a website. Updates are included with your licence.</p>
-    </details>
-    <details data-reveal>
-      <summary>What's next for QuellHeat?</summary>
-      <p>It keeps getting new features. Updates are free and arrive in the app, no reinstalling needed. If you've paid for a licence, email us with what you want built next: that's how you get a vote.</p>
-    </details>
-    <details data-reveal>
-      <summary>Why does it ask for an admin password once?</summary>
-      <p>Writing fan speeds needs a small privileged helper, which macOS quite rightly makes you approve. You approve it once, in System Settings, and never again. It only ever writes fan registers.</p>
+      <summary>How do activation and updates work?</summary>
+      <p>You get a licence key by email and paste it into the Activate window once per Mac — it works on two, with a 14-day offline grace period so travelling never locks you out. Updates arrive in the app itself, cryptographically signed and verified, and are included with your licence.</p>
     </details>
     <details data-reveal>
       <summary>Refunds?</summary>
-      <p>Within 14 days, write to us or to Lemon Squeezy and it's refunded. Keys from refunded orders are disabled.</p>
+      <p>Within 14 days, write to us or to Lemon Squeezy and it's refunded. Keys from refunded orders are disabled — and leave the draw.</p>
     </details>
   </div>
 </section>

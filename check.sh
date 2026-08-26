@@ -51,7 +51,10 @@ EXT="$(printf '%s' "$EXT" | grep -vE 'khubaevbaysangur-sys|quellheat\.com' || tr
 if [[ -z "$EXT" ]]; then ok "zero external resources"; else bad "external resources present:"; echo "$EXT" | sed 's/^/      /'; fi
 
 echo "── price is consistent ──"
-if grep -q '14\.99\|\$1[0-9]' index.html; then bad "a stale dollar price is still on the page"; else ok "no stale dollar prices"; fi
+# The $10,000 goal figure (the watch-giveaway meter) is the ONE sanctioned
+# dollar amount on the page; strip it before hunting stale $-prices so the
+# check keeps catching a resurrected $14.99 without crying wolf at the goal.
+if sed 's/\$10,000//g' index.html | grep -q '14\.99\|\$1[0-9]'; then bad "a stale dollar price is still on the page"; else ok "no stale dollar prices"; fi
 if [[ $(grep -c 'kr&nbsp;149\|kr 149' index.html) -ge 3 ]]; then ok "kr 149 stated in the hero, pricing card and nav"; else bad "kr 149 appears fewer than 3 times"; fi
 
 echo "── local assets exist ──"
